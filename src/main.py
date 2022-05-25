@@ -5,7 +5,7 @@ from graphene import ObjectType, Field, Int, List
 
 from starlette.applications import Starlette
 from starlette_graphene3 import GraphQLApp, make_playground_handler
-from src.schemas.schema import ProductOverview, ProductType
+from schemas.schema import ProductOverview, ProductType
 import json
 
 
@@ -16,7 +16,7 @@ class Query(ObjectType):
 
     @staticmethod
     async def resolve_product_overview(self, info):
-        with open("src/products.json") as products_json:
+        with open("./products.json") as products_json:
             products = json.load(products_json)
         return {
                     'products': products,
@@ -26,14 +26,14 @@ class Query(ObjectType):
 
     @staticmethod
     async def resolve_product_details(self, info, id):
-        with open("src/products.json") as products:
+        with open("./products.json") as products:
             products = json.load(products)
         product = next((product for product in products if product['id'] == id), None)
         return product
 
     @staticmethod
     async def resolve_products_by_category(self, info, categoryId):
-        with open("src/products.json") as products_json:
+        with open("./products.json") as products_json:
             products = json.load(products_json)
         products = [product for product in products if product['category'] == categoryId]
         return products
