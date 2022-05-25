@@ -7,13 +7,13 @@ To get set the app up and running follow these steps carefully.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/divinirakiza/py-graphql.git
+git clone https://github.com/trezor13/sponsorlytix-asgnment
 ```
 
 ### Navigate to the codebase directory
 
 ```bash
-cd py-graphql
+cd sponsorlytix-asgnment
 ```
 
 ### Create a virtual environment
